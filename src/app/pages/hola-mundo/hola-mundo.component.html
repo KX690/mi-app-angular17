@@ -4,3 +4,20 @@
 <button (click)="saludar()">Saludar</button>
 
 <p *ngIf="mensaje">{{ mensaje }}</p>
+
+<h3>Agregar nuevas tareas</h3>
+<input type="text" [(ngModel)] ="nuevaTarea" placeholder="Nueva tarea"/>
+<button (click)="agregarTarea()">Agregar</button>
+
+
+<h3>Mis tareas</h3>
+<ul>
+  <app-tarea-item
+    *ngFor="let tarea of tareas; let i = index"
+    [tarea]="tarea"
+    [index]="i"
+    (eliminar)="eliminarTarea($event)">
+  </app-tarea-item>
+</ul>
+
+
