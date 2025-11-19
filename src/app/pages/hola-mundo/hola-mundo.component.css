@@ -47,3 +47,14 @@ li button {
 li button:hover {
   background-color: #c0392b;
 }
+.estadisticas {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  border-radius: 4px;
+}
+.estadisticas p {
+  margin: 0.25rem 0;
+  font-weight: bold;
+}

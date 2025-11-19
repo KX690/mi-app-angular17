@@ -1,4 +1,9 @@
-<li>
-  {{ tarea }}
-  <button (click)="onEliminar()">🗑️</button>
-</li>
+<div class="tarea-item">
+  
+
+  <span [class.completada]="tarea.completada">
+    {{ tarea.texto }} [{{ tarea.prioridad }}]
+  </span>
+
+  <button (click)="onEliminar()" class="eliminar">🗑️</button>
+</div>

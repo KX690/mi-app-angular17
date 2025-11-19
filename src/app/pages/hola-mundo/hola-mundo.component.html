@@ -1,23 +1,36 @@
-<h2>Hola Mundo desde Angular 17 🚀</h2>
+<h1>Hola Mundo desde Angular 17 🚀</h1>
 
-<input type="text" [(ngModel)]="nombre" placeholder="Escribí tu nombre" />
+<input type="text" [(ngModel)]="nombre" placeholder="Escribí tu nombre">
 <button (click)="saludar()">Saludar</button>
-
 <p *ngIf="mensaje">{{ mensaje }}</p>
 
 <h3>Agregar nuevas tareas</h3>
-<input type="text" [(ngModel)] ="nuevaTarea" placeholder="Nueva tarea"/>
+<input type="text" [(ngModel)]="nuevaTarea.texto" placeholder="Nueva tarea">
+<select [(ngModel)]="nuevaTarea.prioridad">
+  <option value="alta">Alta</option>
+  <option value="media">Media</option>
+  <option value="baja">Baja</option>
+</select>
 <button (click)="agregarTarea()">Agregar</button>
 
+<h3>Filtrar por prioridad</h3>
+<select [(ngModel)]="filtroPrioridad">
+  <option value="todas">Todas</option>
+  <option value="alta">Alta</option>
+  <option value="media">Media</option>
+  <option value="baja">Baja</option>
+</select>
 
 <h3>Mis tareas</h3>
-<ul>
-  <app-tarea-item
-    *ngFor="let tarea of tareas; let i = index"
-    [tarea]="tarea"
-    [index]="i"
-    (eliminar)="eliminarTarea($event)">
-  </app-tarea-item>
-</ul>
+<div class="resumen">
+  <p><strong>Total:</strong> {{ tareasTotales }}</p>
+  <p><strong>Completadas:</strong> {{ tareasCompletadas }}</p>
+  <p><strong>Pendientes:</strong> {{ tareasPendientes }}</p>
+</div>
 
-
+<app-tarea-item
+  *ngFor="let tarea of tareasFiltradas; let i = index"
+  [tarea]="tarea"
+  [index]="i"
+  (eliminar)="eliminarTarea($event)">
+</app-tarea-item>

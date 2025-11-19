@@ -3,7 +3,7 @@ import { HolaMundoComponent } from './pages/hola-mundo/hola-mundo.component';
 import { AcercaDeComponent} from './pages/acerca-de/acerca-de.component'
 export const routes: Routes = [
     {
-        path: 'hola',
+        path: '',
         component: HolaMundoComponent
     },
     {
@@ -12,7 +12,7 @@ export const routes: Routes = [
     },
     {
         path:'',
-        redirectTo: 'hola',
+        redirectTo: '',
         pathMatch: 'full'
     }
 ];

@@ -9,11 +9,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './tarea-item.component.css'
 })
 export class TareaItemComponent {
-    @Input() tarea: string = '';
-    @Input() index!: number;
-    @Output() eliminar = new EventEmitter<number>();
+  @Input() tarea!: { texto: string; prioridad: 'alta' | 'media' | 'baja', completada: boolean };
+  @Input() index!: number;
+  @Output() eliminar = new EventEmitter<number>();
+  @Output() toggleCompletado = new EventEmitter<number>();
 
-    onEliminar(){
-      this.eliminar.emit(this.index);
-    }
+  onEliminar() {
+    this.eliminar.emit(this.index);
+  }
+
+  onToggle() {
+    this.toggleCompletado.emit(this.index);
+  }
+
 }
